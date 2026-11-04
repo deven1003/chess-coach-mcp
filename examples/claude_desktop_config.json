@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "chess-coach": {
+      "command": "chess-coach-mcp",
+      "env": {
+        "STOCKFISH_PATH": "",
+        "LICHESS_TOKEN": ""
+      }
+    }
+  }
+}

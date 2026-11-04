@@ -1,0 +1,10 @@
+[Event "Casual game"]
+[Site "https://lichess.org/abcdefgh"]
+[Date "2026.11.01"]
+[White "coachbot"]
+[Black "student"]
+[Result "1-0"]
+[ECO "C20"]
+[Opening "King's Pawn Game: Wayward Queen Attack"]
+
+1. e4 e5 2. Bc4 Nc6 3. Qh5 Nf6 4. Qxf7# 1-0

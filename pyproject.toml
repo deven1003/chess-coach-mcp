@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chess-coach-mcp"
+version = "0.1.0"
+description = "MCP server that turns any AI assistant into a chess coach: fetches your Lichess / Chess.com games, analyzes them with Stockfish, and explains why you lost."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{ name = "Deven Kalathiya" }]
+keywords = ["mcp", "model-context-protocol", "chess", "stockfish", "lichess", "chess.com", "coach"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Games/Entertainment :: Board Games",
+]
+dependencies = [
+  "mcp>=2.0",
+  "chess>=1.10",
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.24",
+  "respx>=0.21",
+  "ruff>=0.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/deven1003/chess-coach-mcp"
+Issues = "https://github.com/deven1003/chess-coach-mcp/issues"
+
+[project.scripts]
+chess-coach-mcp = "chess_coach_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chess_coach_mcp"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning:chess.engine"]
